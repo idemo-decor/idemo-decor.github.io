@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
     const defaultLang = 'en';
 
-    // Function to set language
-    function setLanguage(lang, updateHash = true) {
-        if (!translations[lang]) return;
+    // Function to set language (View Update Only)
+    function setLanguage(lang) {
+        if (!window.translations[lang]) return;
 
         // Update active button state
         langBtns.forEach(btn => {
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update text content for all elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (window.translations[lang][key]) {
                 // Handle elements that contain HTML tags (like bold text)
-                if (element.innerHTML !== translations[lang][key]) {
-                     element.innerHTML = translations[lang][key]; 
+                if (element.innerHTML !== window.translations[lang][key]) {
+                     element.innerHTML = window.translations[lang][key]; 
                 }
             }
         });
@@ -46,45 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update html lang attribute for accessibility
         document.documentElement.lang = lang;
-
-        // Update URL hash if requested and it's a language code
-        if (updateHash) {
-            // Only update hash if it's not currently a section anchor or if we are explicitly switching
-            // But user requested "add something to the URL like a hash".
-            // We'll update it. If it conflicts with #about, so be it (standard behavior for some sites).
-            // To be nicer, we could check if current hash is a section, but let's stick to the request.
-            // We use replaceState to avoid cluttering history too much, or pushState?
-            // "add something to the URL".
-            if(window.location.hash !== '#' + lang && !document.querySelector(window.location.hash)) {
-                 history.replaceState(null, null, '#' + lang);
-            } else if (window.location.hash === '#' + lang) {
-                // already there
-            } else {
-                 // If there is an existing valid ID hash (like #about), deciding whether to overwrite is tricky.
-                 // For now, let's only overwrite if we are explicitly switching or if the hash is empty.
-                 // Actually, let's keep it simple: If I click the button, I want to see the change.
-                 // But for initialization, we should be careful.
-            }
-        }
     }
 
     // Determine Language on Load
     function getInitialLanguage() {
         // 1. Check URL Hash (e.g. #fr)
         const hash = window.location.hash.substring(1);
-        if (translations[hash]) {
+        if (window.translations[hash]) {
             return hash;
         }
 
         // 2. Check LocalStorage
         const saved = localStorage.getItem('decor-lang');
-        if (saved && translations[saved]) {
+        if (saved && window.translations[saved]) {
             return saved;
         }
 
         // 3. Check Browser Locale
         const browserLang = navigator.language.substring(0, 2);
-        if (translations[browserLang]) {
+        if (window.translations[browserLang]) {
             return browserLang;
         }
 
@@ -93,14 +73,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize
     const initialLang = getInitialLanguage();
-    setLanguage(initialLang, window.location.hash === '' || window.location.hash === '#' + initialLang);
+    setLanguage(initialLang);
+    
+    // Set initial hash if it's empty and we are using a non-default language
+    // or if we simply want to reflect the current state
+    if (window.location.hash === '' && initialLang !== defaultLang) {
+        history.replaceState(null, null, '#' + initialLang);
+    } else if (window.location.hash === '#' + initialLang) {
+        // All good
+    }
 
     // Event Listeners for Language Buttons
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            setLanguage(lang, true);
-            // Force hash update on explicit click
+            setLanguage(lang);
+            // Update hash
             history.pushState(null, null, '#' + lang);
         });
     });
