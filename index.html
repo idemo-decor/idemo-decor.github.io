@@ -15,13 +15,17 @@
         <div class="container nav-container">
             <a href="#" class="logo">DECOR<span class="highlight">.</span></a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#innovations">Innovations</a></li>
-                <li><a href="#demonstrator">Demonstrator</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#consortium">Consortium</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#innovations" data-i18n="nav.innovations">Innovations</a></li>
+                <li><a href="#demonstrator" data-i18n="nav.demonstrator">Demonstrator</a></li>
+                <li><a href="#benefits" data-i18n="nav.benefits">Benefits</a></li>
+                <li><a href="#resources" data-i18n="nav.resources">Resources</a></li>
+                <li><a href="#consortium" data-i18n="nav.consortium">Consortium</a></li>
             </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">🇬🇧</button>
+                <button class="lang-btn" data-lang="fr">🇫🇷</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -32,17 +36,17 @@
 
     <header class="hero">
         <div class="container hero-content">
-            <h1>DECOR Project</h1>
-            <p class="subtitle">Cybersecurity Event Detection, Contextualization & Response</p>
-            <p class="description">A collaborative platform enhancing cyber defense efficiency through intelligent correlation and guided remediation.</p>
-            <a href="#about" class="btn btn-primary">Learn More</a>
+            <h1 data-i18n="hero.title">DECOR Project</h1>
+            <p class="subtitle" data-i18n="hero.subtitle">Cybersecurity Event Detection, Contextualization & Response</p>
+            <p class="description" data-i18n="hero.description">A collaborative platform enhancing cyber defense efficiency through intelligent correlation and guided remediation.</p>
+            <a href="#about" class="btn btn-primary" data-i18n="hero.cta">Learn More</a>
         </div>
         <div class="hero-bg"></div>
     </header>
 
     <section class="support-banner">
         <div class="container support-content">
-            <p>Proudly financed and supported by</p>
+            <p data-i18n="support.text">Proudly financed and supported by</p>
             <div class="support-logos">
                 <img src="assets/images/region-bretagne-logo.svg" alt="Région Bretagne" class="support-logo">
                 <img src="assets/images/bpi-france-logo.svg" alt="BPI France" class="support-logo">
@@ -51,14 +55,14 @@
     </section>
 
     <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About the Project</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>The DECOR project aimed to drastically reduce detection and remediation times in cybersecurity by integrating contextual analysis with actionable response tools.</p>
-                        <p>Led by <strong>CentraleSupélec</strong> with key contributions from <strong>Malizen</strong> and <strong>Wallix</strong>, this initiative focused on interoperability with existing SIEM, EDR, and SOAR systems to provide a unified defense layer.</p>
-                    </div>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about.title">About the Project</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about.p1">The DECOR project aimed to drastically reduce detection and remediation times in cybersecurity by integrating contextual analysis with actionable response tools.</p>
+                    <p data-i18n="about.p2">Led by <strong>CentraleSupélec</strong> with key contributions from <strong>Malizen</strong> and <strong>Wallix</strong>, this initiative focused on interoperability with existing SIEM, EDR, and SOAR systems to provide a unified defense layer.</p>
+                </div>
                     <div class="about-visual">
                         <img src="assets/images/about-visual.png" alt="Contextual Analysis Visualization" class="visual-img">
                     </div>
@@ -68,22 +72,22 @@
 
         <section id="innovations" class="section bg-darker">
             <div class="container">
-                <h2 class="section-title">Key Innovations</h2>
+                <h2 class="section-title" data-i18n="innovations.title">Key Innovations</h2>
                 <div class="cards-grid">
                     <div class="card">
                         <div class="card-icon">🔗</div>
-                        <h3>Contextual Correlation</h3>
-                        <p>Combining expert knowledge (MITRE ATT&CK) with machine learning for enhanced event analysis.</p>
+                        <h3 data-i18n="innovations.card1.title">Contextual Correlation</h3>
+                        <p data-i18n="innovations.card1.text">Combining expert knowledge (MITRE ATT&CK) with machine learning for enhanced event analysis.</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🗺️</div>
-                        <h3>Interactive Mapping</h3>
-                        <p>Extrapolated network and asset mapping designed specifically for security analysts.</p>
+                        <h3 data-i18n="innovations.card2.title">Interactive Mapping</h3>
+                        <p data-i18n="innovations.card2.text">Extrapolated network and asset mapping designed specifically for security analysts.</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🤖</div>
-                        <h3>Intelligent Recommendation</h3>
-                        <p>Context-aware engines that suggest mitigation and remediation actions.</p>
+                        <h3 data-i18n="innovations.card3.title">Intelligent Recommendation</h3>
+                        <p data-i18n="innovations.card3.text">Context-aware engines that suggest mitigation and remediation actions.</p>
                     </div>
                 </div>
             </div>
@@ -91,24 +95,24 @@
 
         <section id="demonstrator" class="section">
             <div class="container">
-                <h2 class="section-title">Use Case Demonstrator</h2>
+                <h2 class="section-title" data-i18n="demonstrator.title">Use Case Demonstrator</h2>
                 <div class="demonstrator-flow">
                     <div class="step">
                         <div class="step-number">01</div>
-                        <h3>Detection</h3>
-                        <p>Identification of a suspicious event within the network traffic.</p>
+                        <h3 data-i18n="demonstrator.step1.title">Detection</h3>
+                        <p data-i18n="demonstrator.step1.text">Identification of a suspicious event within the network traffic.</p>
                     </div>
                     <div class="connector">→</div>
                     <div class="step">
                         <div class="step-number">02</div>
-                        <h3>Analysis</h3>
-                        <p>Contextual correlation with asset data and threat intelligence.</p>
+                        <h3 data-i18n="demonstrator.step2.title">Analysis</h3>
+                        <p data-i18n="demonstrator.step2.text">Contextual correlation with asset data and threat intelligence.</p>
                     </div>
                     <div class="connector">→</div>
                     <div class="step">
                         <div class="step-number">03</div>
-                        <h3>Response</h3>
-                        <p>Recommendation to redirect traffic and isolate attacker.</p>
+                        <h3 data-i18n="demonstrator.step3.title">Response</h3>
+                        <p data-i18n="demonstrator.step3.text">Recommendation to redirect traffic and isolate attacker.</p>
                     </div>
                 </div>
             </div>
@@ -116,34 +120,34 @@
 
         <section id="benefits" class="section bg-darker">
             <div class="container">
-                <h2 class="section-title">Benefits</h2>
+                <h2 class="section-title" data-i18n="benefits.title">Benefits</h2>
                 <ul class="benefits-list">
                     <li>
                         <span class="check">✓</span>
                         <div>
-                            <h3>Faster Decision Making</h3>
-                            <p>Accelerated detection and response times.</p>
+                            <h3 data-i18n="benefits.item1.title">Faster Decision Making</h3>
+                            <p data-i18n="benefits.item1.text">Accelerated detection and response times.</p>
                         </div>
                     </li>
                     <li>
                         <span class="check">✓</span>
                         <div>
-                            <h3>Expertise Support</h3>
-                            <p>Reduces the burden on analysts by automating complex correlations.</p>
+                            <h3 data-i18n="benefits.item2.title">Expertise Support</h3>
+                            <p data-i18n="benefits.item2.text">Reduces the burden on analysts by automating complex correlations.</p>
                         </div>
                     </li>
                     <li>
                         <span class="check">✓</span>
                         <div>
-                            <h3>Enhanced ROI</h3>
-                            <p>Increases value from existing cybersecurity tool stacks.</p>
+                            <h3 data-i18n="benefits.item3.title">Enhanced ROI</h3>
+                            <p data-i18n="benefits.item3.text">Increases value from existing cybersecurity tool stacks.</p>
                         </div>
                     </li>
                     <li>
                         <span class="check">✓</span>
                         <div>
-                            <h3>Analyst Ready</h3>
-                            <p>Designed for SOC/CERT teams.</p>
+                            <h3 data-i18n="benefits.item4.title">Analyst Ready</h3>
+                            <p data-i18n="benefits.item4.text">Designed for SOC/CERT teams.</p>
                         </div>
                     </li>
                 </ul>
@@ -152,24 +156,24 @@
 
         <section id="resources" class="section">
             <div class="container">
-                <h2 class="section-title">Resources</h2>
+                <h2 class="section-title" data-i18n="resources.title">Resources</h2>
                 <div class="resources-grid">
                     <div class="resource-card">
-                        <h3>📄 Publications</h3>
+                        <h3 data-i18n="resources.pub">📄 Publications</h3>
                         <ul class="resource-list">
                             <li><a href="#">Publication 1</a></li>
                             <li><a href="#">Publication 2</a></li>
                         </ul>
                     </div>
                     <div class="resource-card">
-                        <h3>🎥 Videos & Demos</h3>
+                        <h3 data-i18n="resources.vid">🎥 Videos & Demos</h3>
                         <ul class="resource-list">
                             <li><a href="#">Video 1</a></li>
                             <li><a href="#">Video 2</a></li>
                         </ul>
                     </div>
                     <div class="resource-card">
-                        <h3>📦 Materials</h3>
+                        <h3 data-i18n="resources.mat">📦 Materials</h3>
                         <ul class="resource-list">
                             <li><a href="#">Material 1</a></li>
                         </ul>
@@ -180,28 +184,28 @@
 
         <section id="consortium" class="section bg-darker">
             <div class="container">
-                <h2 class="section-title">Consortium</h2>
+                <h2 class="section-title" data-i18n="consortium.title">Consortium</h2>
                 <div class="partners-grid">
                     <div class="partner-card highlight-card">
                         <h3>CentraleSupélec</h3>
-                        <p class="role">Project Lead</p>
-                        <p>AI, Research & Coordination</p>
+                        <p class="role" data-i18n="consortium.lead">Project Lead</p>
+                        <p data-i18n="consortium.role1">AI, Research & Coordination</p>
                     </div>
                     <div class="partner-card">
                         <h3>Malizen</h3>
-                        <p class="role">Partner</p>
-                        <p>Visualization & Contextual Analysis</p>
+                        <p class="role" data-i18n="consortium.partner">Partner</p>
+                        <p data-i18n="consortium.role2">Visualization & Contextual Analysis</p>
                     </div>
                     <div class="partner-card muted-card">
                         <h3>Wallix</h3>
-                        <p class="role">Initial Partner</p>
-                        <p>Response Tools (Early Phase)</p>
+                        <p class="role" data-i18n="consortium.init_partner">Initial Partner</p>
+                        <p data-i18n="consortium.role3">Response Tools (Early Phase)</p>
                     </div>
                 </div>
                 
                 <div class="contact-cta">
-                    <h3>Interested in collaborating?</h3>
-                    <a href="mailto:contact@decor-project.eu" class="btn btn-secondary">Contact Us</a>
+                    <h3 data-i18n="contact.title">Interested in collaborating?</h3>
+                    <a href="mailto:contact@decor-project.eu" class="btn btn-secondary" data-i18n="contact.cta">Contact Us</a>
                 </div>
             </div>
         </section>
@@ -209,13 +213,14 @@
 
     <footer>
         <div class="container footer-content">
-            <p>&copy; 2025 DECOR Consortium. All rights reserved.</p>
+            <p data-i18n="footer.rights">&copy; 2025 DECOR Consortium. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#"></a>
             </div>
         </div>
     </footer>
 
+    <script src="js/translations.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -17,6 +17,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Language Switcher Logic
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const defaultLang = 'en';
+
+    // Function to set language
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+
+        // Update active button state
+        langBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // Update text content for all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                // Handle elements that contain HTML tags (like bold text)
+                if (element.innerHTML !== translations[lang][key]) {
+                     element.innerHTML = translations[lang][key]; 
+                }
+            }
+        });
+
+        // Save preference
+        localStorage.setItem('decor-lang', lang);
+        
+        // Update html lang attribute for accessibility
+        document.documentElement.lang = lang;
+    }
+
+    // Initialize Language
+    const savedLang = localStorage.getItem('decor-lang') || defaultLang;
+    setLanguage(savedLang);
+
+    // Event Listeners for Language Buttons
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            setLanguage(lang);
+        });
+    });
+
     // Intersection Observer for fade-in animations
     const observerOptions = {
         root: null,

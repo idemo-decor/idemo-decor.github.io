@@ -162,6 +162,33 @@ h2.section-title::after {
     color: var(--primary-color);
 }
 
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    padding: 0;
+}
+
+.lang-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
